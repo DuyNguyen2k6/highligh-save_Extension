@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"/>
+  <title>Ghi chú</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+</head>
+<body class="popup-body">
+  <div class="header">
+    <h1>📝 Ghi chú đã lưu</h1>
+    <div class="button-group">
+      <button class="create-note-button" id="createNoteBtn">Tạo ghi chú</button>
+      <button class="create-note-button" id="exportJsonBtn">Xuất JSON</button>
+      <button class="create-note-button" id="importJsonBtn">Nhập JSON</button>
+      <input accept=".json" id="fileInput" style="display: none;" type="file"/>
+    </div>
+  </div>
+
+  <!-- Khung nhập ghi chú mới -->
+  <div class="new-note-container" id="newNoteContainer" style="display: none;">
+    <textarea class="new-note-textarea" id="newNoteText" placeholder="Nhập ghi chú mới..."></textarea>
+    <div class="edit-button-container">
+      <button class="save-button" id="saveNewNoteBtn">Lưu</button>
+      <button class="cancel-button" id="cancelNewNoteBtn">Hủy</button>
+    </div>
+  </div>
+  <!-- End khung nhập ghi chú mới -->
+
+  <div class="tabs-container">
+    <div class="tab-buttons">
+      <button class="tab-button active" id="textTabBtn">Văn bản</button>
+      <button class="tab-button" id="imageTabBtn">Ảnh</button>
+    </div>
+    <div class="tab-content">
+      <div class="tab-pane active" id="textTab">
+        <ul id="textNoteList"></ul>
+      </div>
+      <div class="tab-pane" id="imageTab">
+        <ul id="imageNoteList"></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="action-buttons" id="actionButtons">
+    <button disabled="" id="copyBtn">📋 Sao chép</button>
+    <button disabled="" id="editBtn">✏️ Chỉnh sửa</button>
+    <button disabled="" id="deleteBtn">🗑️ Xóa</button>
+    <button disabled="" id="saveImageBtn">💾 Lưu ảnh</button>
+  </div>
+
+  <!-- Modal xác nhận xóa với Glassmorphism -->
+  <div class="modal" id="deleteModal" style="display: none;">
+    <div class="modal-content">
+      <p id="deleteMessage"></p>
+      <div class="modal-buttons">
+        <button class="save-button" id="confirmDeleteBtn">Xóa</button>
+        <button class="cancel-button" id="cancelDeleteBtn">Hủy</button>
+      </div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
